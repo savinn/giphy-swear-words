@@ -1,0 +1,13 @@
+<div class="search-form">
+  <input type="search" placeholder="Let's find something awesome ..." class="search-input" [(ngModel)]="searchTerm"
+    (keyup)="onChange()" />
+</div>
+<div class="view-container">
+  <div class="gallery-container row">
+    <span class="column">
+      <img *ngFor="let gif of gifs" [src]="gif.images.fixed_width.url" />
+    </span>
+  </div>
+  <mat-paginator [length]="64" [pageSize]="8" [pageSizeOptions]="[8]" (page)="onChange($event)">
+  </mat-paginator>
+</div>
